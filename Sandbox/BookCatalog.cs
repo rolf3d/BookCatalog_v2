@@ -7,7 +7,7 @@ namespace Sandbox
 {
     class BookCatalog
     {
-        private Dictionary<string,Book> books;
+        private Dictionary<string, Book> books;
 
         public BookCatalog()
         {
@@ -16,23 +16,30 @@ namespace Sandbox
 
         public void AddBook(Book aBook)
         {
-            // Add code that can add the given Book object to the list
+            // Add the given Book object to the Dictionary
+            // ISBN is the Key for a Book object
+            books.Add(aBook.GetISBN(), aBook);
         }
 
         public void PrintAllBooks()
         {
-            // Add code that can print all books in the list
-            // Hint: You will need a repetition statement
+            // For all books in the Dictionary, print out information for each book
+            foreach (KeyValuePair<string, Book> kvp in books)
+            {
+                Book b = kvp.Value;
+                Console.WriteLine(b.GetAllInformation());
+            }
         }
 
         public Book LookupBook(string isbn)
         {
             Book matchingBook = null;
 
-            // Add code that will find a book (if any) in the list
-            // which has a matching ISBN number. The variable matchingBook
-            // should be set to this book
-            // Hint: You can use isbn to lookup the book in the Dictionar
+            // See if a book with the given key (isbn) is in the Dictionary
+            if (books.ContainsKey(isbn))
+            {
+                matchingBook = books[isbn]; // Now matchingBook refers to the book with the matching ISBN
+            }
 
             return matchingBook;
         }
