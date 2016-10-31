@@ -17,12 +17,18 @@ namespace Sandbox
         public void AddBook(Book aBook)
         {
             // Add code that can add the given Book object to the list
+            books.Add(aBook.GetISBN(), aBook);
         }
 
         public void PrintAllBooks()
         {
             // Add code that can print all books in the list
             // Hint: You will need a repetition statement
+            foreach (KeyValuePair<string, Book> materiale in books)
+            {
+                Book enBog = materiale.Value;
+                Console.WriteLine(enBog.GetAllInformation());
+            }
         }
 
         public Book LookupBook(string isbn)
@@ -34,6 +40,22 @@ namespace Sandbox
             // should be set to this book
             // Hint: You can use isbn to lookup the book in the Dictionar
 
+            if (books.ContainsKey(isbn))
+            {
+                Console.WriteLine("Vi fandt følgende bøger hjemme: ");
+                return books[isbn];
+                
+            }
+            else
+            {
+                Console.WriteLine("Vi fandt desværre ikke lige det du søgte ");
+                
+            }
+            if (matchingBook == null)
+            {
+                Console.WriteLine("Der var desvæære ikke noget:");
+
+            }
             return matchingBook;
         }
     }
