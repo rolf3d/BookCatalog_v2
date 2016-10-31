@@ -17,7 +17,24 @@ namespace Sandbox
         public void AddBook(Book aBook)
         {
             // Add code that can add the given Book object to the list
-            books.Add(aBook.GetISBN(), aBook);
+            bool erderbog = false;
+
+            foreach (var bog in books)
+            {
+                if (aBook.GetISBN() == bog.Key)
+                {
+                    erderbog = true;
+                }
+            }
+            if (erderbog == true)
+            {
+                Console.WriteLine("Bogen findes allerede ");
+            }
+            else
+            {
+                books.Add(aBook.GetISBN(), aBook);
+            }
+
         }
 
         public void PrintAllBooks()

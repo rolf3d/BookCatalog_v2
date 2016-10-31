@@ -12,12 +12,14 @@ namespace Sandbox
             Book b2 = new Book("XS3220", "Gardening", "Alex Sohn", 220);
             Book b3 = new Book("DD0095", "Cars in the USA", "Susan Dreyer", 528);
             Book b4 = new Book("PT1295", "Copenhagen Dawn", "Dan Mygind", 104);
+            Book b5 = new Book("PT1295", "Copenhagen Dawn", "Dan Mygind", 104);
 
             BookCatalog theCatalog = new BookCatalog();
             theCatalog.AddBook(b1);
             theCatalog.AddBook(b2);
             theCatalog.AddBook(b3);
             theCatalog.AddBook(b4);
+            theCatalog.AddBook(b5);
 
             Console.WriteLine("------------- Printing all books ---------------");
             theCatalog.PrintAllBooks();
